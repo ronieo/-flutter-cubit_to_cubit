@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
+      // syntax sugar ↑
       providers: [
+        // counter cubit은 color cubit의 instance를 필요로 하기때문에 ColorCubit이 상위에있어야한다
         BlocProvider<ColorCubit>(
           create: (context) => ColorCubit(),
         ),
@@ -42,6 +44,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //watch extension method
       backgroundColor: context.watch<ColorCubit>().state.color,
       body: Center(
         child: Column(
@@ -58,6 +61,7 @@ class MyHomePage extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             Text(
+              //instance↓    listen할 대상 ↓
               '${context.watch<CounterCubit>().state.counter}',
               style: TextStyle(
                 fontSize: 52.0,

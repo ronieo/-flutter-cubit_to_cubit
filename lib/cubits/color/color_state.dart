@@ -1,13 +1,15 @@
 part of 'color_cubit.dart';
 
-class ColorState extends Equatable {
+class constructor extends Equatable {
   final Color color;
-  ColorState({
+  //generate constructor
+  constructor({
     required this.color,
   });
 
-  factory ColorState.initial() {
-    return ColorState(color: Colors.red);
+// colorState의 initial로 활용하기 위해 factory constructor
+  factory constructor.initial() {
+    return constructor(color: Colors.red); // 컬러값이 레드인 인스턴스를 리턴
   }
 
   @override
@@ -16,10 +18,10 @@ class ColorState extends Equatable {
   @override
   String toString() => 'ColorState(color: $color)';
 
-  ColorState copyWith({
+  constructor copyWith({
     Color? color,
   }) {
-    return ColorState(
+    return constructor(
       color: color ?? this.color,
     );
   }
